@@ -21,6 +21,12 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+// Check for MONGO_URI
+if (!process.env.MONGO_URI) {
+  console.error('FATAL ERROR: MONGO_URI is not defined in environment variables.');
+  process.exit(1);
+}
+
 // Database Connection
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -36,4 +42,5 @@ mongoose
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
+    process.exit(1); // Exit process with failure so Render doesn't just say 'exited early'
   });
