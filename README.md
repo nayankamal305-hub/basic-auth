@@ -24,7 +24,7 @@ basic-auth/
 │   ├── routes/
 │   │   ├── auth.js
 │   │   └── items.js
-│   ├── .env
+│   ├── .env.example
 │   ├── package.json
 │   └── server.js
 └── frontend/
@@ -64,7 +64,7 @@ The frontend is built with React and Vite.
 2. Under "Database Access", create a user with a strong password.
 3. Under "Network Access", allow your IP address (or `0.0.0.0/0` for all IPs).
 4. Click "Connect" -> "Connect your application" and copy the connection string.
-5. In your `backend/.env` file, replace the `MONGO_URI` with the string you copied, substituting `<password>` with your actual password. Example:
+5. Copy `backend/.env.example` to `backend/.env` (it is not tracked by git) and set `JWT_SECRET` to a long random string. In `backend/.env`, replace the `MONGO_URI` with the string you copied, substituting `<password>` with your actual password. Example:
    `MONGO_URI=mongodb+srv://user:yourpassword@cluster0.mongodb.net/taskapp?retryWrites=true&w=majority`
 
 ## RUN INSTRUCTIONS
